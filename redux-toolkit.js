@@ -1,4 +1,4 @@
-const { configureStore, createAction, createReducer } = require('@reduxjs/toolkit')
+const { configureStore, createAction, createReducer, createSlice } = require('@reduxjs/toolkit')
 const increment = createAction('INCREMENT');
 const decrement = createAction('DECREMENT');
 
@@ -22,3 +22,16 @@ store.dispatch(increment())
 console.log(store.getState())
 store.dispatch(decrement())
 console.log(store.getState())
+
+
+const numberSlice = createSlice({
+    name: 'number',
+    initialState: 0,
+    reducers: {
+        increment: state => state + 1,
+        decrement: state => state - 1
+    }
+})
+
+const numberStore = configureStore({reducer: numberSlice.reducer})
+console.log('number', numberStore.getState())
