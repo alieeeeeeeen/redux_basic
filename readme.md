@@ -36,7 +36,7 @@
     ```
 
     ```
-        {
+    {
         name: "todos",
         reducer: (state, action) => newState,
         actions: {
@@ -47,5 +47,5 @@
             addTodo: (state, action) => newState,
             toggleTodo: (state, action) => newState,
         }
-        }
+    }
     ```
