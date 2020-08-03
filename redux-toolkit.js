@@ -21,9 +21,13 @@ const numberSlice = createSlice({
         value: 0
     },
     reducers: {
-        incrementByValue: (state, action) => {
-            console.log(action)
-            state.value += action.payload
+        incrementByValue: {
+            reducer: (state, action) => {
+                state.value += action.payload
+            },
+            prepare(text) {
+                return { payload: text }
+            }
         },
         decrementByValue: (state, action) => {
             state.value -= action.payload;

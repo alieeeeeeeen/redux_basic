@@ -16,6 +16,25 @@
  - createAction
  - createReducer
  - createSlcie
+
+    ```
+      const xxxStore = createSlice({
+          name: 'xxx',
+          initialState: {
+              xxx
+          },
+          reducers: {
+              increment: {
+                  reducer: (state, action) => {
+                  },
+                  prepare: (text) => {
+                      return {payload: text}
+                  }
+              }
+          }
+      })
+    ```
+
     ```
         {
         name: "todos",
