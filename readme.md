@@ -5,3 +5,7 @@
  - Subscription
  - Selectors
 
+# Redux-toolkit
+ - configureStore
+ - createAction
+ - createReducer
