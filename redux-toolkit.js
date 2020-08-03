@@ -2,15 +2,6 @@ const { configureStore, createAction, createReducer, createSlice } = require('@r
 const increment = createAction('INCREMENT');
 const decrement = createAction('DECREMENT');
 
-const rootReducer = (state = 0, action) => {
-    switch(action.type) {
-        case increment.type: 
-            return state + 1;
-        default:
-            return state;
-    }
-}
-
 const count = createReducer(0, {
     [increment]: state => state + 1,
     [decrement]: state => state - 1
@@ -26,12 +17,25 @@ console.log(store.getState())
 
 const numberSlice = createSlice({
     name: 'number',
-    initialState: 0,
+    initialState: {
+        value: 0
+    },
     reducers: {
-        increment: state => state + 1,
-        decrement: state => state - 1
+        incrementByValue: (state, action) => {
+            console.log(action)
+            state.value += action.payload
+        },
+        decrementByValue: (state, action) => {
+            state.value -= action.payload;
+        },
     }
 })
 
 const numberStore = configureStore({reducer: numberSlice.reducer})
+
+const { incrementByValue, decrementByValue } = numberSlice.actions;
+
+numberStore.dispatch(incrementByValue(10))
+numberStore.dispatch(decrementByValue(1))
+
 console.log('number', numberStore.getState())

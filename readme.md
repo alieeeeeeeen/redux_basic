@@ -16,5 +16,17 @@
  - createAction
  - createReducer
  - createSlcie
-
-    create actions and reducer
+    ```
+        {
+        name: "todos",
+        reducer: (state, action) => newState,
+        actions: {
+            addTodo: (payload) => ({type: "todos/addTodo", payload}),
+            toggleTodo: (payload) => ({type: "todos/toggleTodo", payload})
+        },
+        caseReducers: {
+            addTodo: (state, action) => newState,
+            toggleTodo: (state, action) => newState,
+        }
+        }
+    ```
