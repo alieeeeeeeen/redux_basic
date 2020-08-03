@@ -1,4 +1,5 @@
 const redux = require('redux');
+
 const createStore = redux.createStore;
 
 // state
@@ -25,14 +26,16 @@ const rootReducer = (state = initialState, action) => {
 // store
 const store = createStore(rootReducer);
 
+// selectors
+const selectCounter = state => state.counter
+
 // subscription
 store.subscribe(() => {
     console.log('[subscription]', store.getState());
 })
 
-
 store.dispatch({type: 'INC'})
-console.log(store.getState())
+console.log(selectCounter(store.getState()))
 
 store.dispatch({type: 'ADD', value: 10})
-console.log(store.getState())
+console.log(selectCounter(store.getState()))

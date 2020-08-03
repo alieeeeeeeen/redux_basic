@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
     "redux": "^4.0.5"
   }
 }

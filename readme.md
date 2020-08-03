@@ -3,4 +3,5 @@
  - Action
  - Reducer
  - Subscription
+ - Selectors
 
